@@ -3,6 +3,9 @@ let showProduct = document.querySelector("#show");
 let change = document.querySelectorAll(".change");
 let delet = document.querySelector("#delete");
 let totalCoast = document.querySelector(".text-success");
+let popup = document.querySelector(".popup");
+let closepopup = document.querySelectorAll(".close-modal");
+let overlay = document.querySelector(".overlay");
 
 function displayCarts() {
   showProduct.innerHTML = "";
@@ -59,6 +62,23 @@ function changed() {
       totalPrice();
     });
   });
+}
+let popupfun = function(){
+  popup.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+let closePopUp = function(){
+  popup.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+let checkOut = function(){
+  popup.classList.add("hidden");
+  overlay.classList.add("hidden");
+  productDetails = [];
+  localStorage.setItem("selectPro", JSON.stringify(productDetails));
+  displayCarts();
 }
 
 console.log(productDetails);
