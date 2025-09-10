@@ -8,8 +8,8 @@ async function getProducts() {
 
   convertRes.forEach((el) => {
     prod.innerHTML += `
-      <div class="card m-3 shadow-sm" style="width: 18rem;">
-        <img src="${el.image}" class="card-img-top" alt="${el.title}" height="200"/>
+      <div class="card m-3 shadow-sm text-center" style="width: 18rem;">
+        <img src="${el.image}" class="card-img-top mx-auto d-block" alt="${el.title}" height="200"/>
         <div class="card-body d-flex flex-column">
           <h3 class="card-title">Price: ${el.price} $</h3>
           <p class="card-text">${el.title}</p>
