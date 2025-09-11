@@ -6,18 +6,18 @@
     <title>Your Cart</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <style>
-      .hidden{
+      .hidden {
         display: none;
       }
       .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(3px);
-      z-index: 5; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 5;
       }
       .popup {
         position: fixed;
@@ -66,30 +66,46 @@
             <h5 class="fw-bold">
               Total: <span class="text-success">0.00$</span>
             </h5>
-            <a href="#" class="btn btn-success btn-lg" onclick="popupfun()">✔ Continue to Order </a>
+            <a
+              href="#"
+              class="btn btn-success btn-lg katon disabled"
+              onclick="popupfun()"
+              >✔ Continue to Order
+            </a>
           </div>
         </div>
       </div>
     </div>
-<div class="popup hidden">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content shadow-lg">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title">Confirm Order ✔</h5>
-        <button type="button" class="btn-close close-modal" aria-label="Close"  onclick="closePopUp()"></button>
+    <div class="popup hidden">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Confirm Order ✔</h5>
+            <button
+              type="button"
+              class="btn-close close-modal"
+              aria-label="Close"
+              onclick="closePopUp()"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Confirm Order ?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary close-modal"
+              onclick="closePopUp()"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" onclick="checkOut()">
+              Confirm
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>
-          Confirm Order ?
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary close-modal" onclick="closePopUp()">Close</button>
-        <button type="button" class="btn btn-success" onclick="checkOut()">Confirm</button>
-      </div>  
     </div>
-  </div>
-</div>
     <div class="overlay hidden"></div>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/popper.min.js"></script>

@@ -6,6 +6,7 @@ let totalCoast = document.querySelector(".text-success");
 let popup = document.querySelector(".popup");
 let closepopup = document.querySelectorAll(".close-modal");
 let overlay = document.querySelector(".overlay");
+let confirm = document.querySelector(".katon");
 
 function displayCarts() {
   showProduct.innerHTML = "";
@@ -33,6 +34,7 @@ function displayCarts() {
   }
   totalPrice();
   changed();
+  disableConfirmBtn();
 }
 function totalPrice() {
   let total = productDetails.reduce((sum, acc) => {
@@ -63,23 +65,31 @@ function changed() {
     });
   });
 }
-let popupfun = function(){
+
+let popupfun = function () {
   popup.classList.remove("hidden");
   overlay.classList.remove("hidden");
-}
+};
 
-let closePopUp = function(){
+let closePopUp = function () {
   popup.classList.add("hidden");
   overlay.classList.add("hidden");
-}
+};
 
-let checkOut = function(){
+let checkOut = function () {
   popup.classList.add("hidden");
   overlay.classList.add("hidden");
   productDetails = [];
   localStorage.setItem("selectPro", JSON.stringify(productDetails));
   displayCarts();
-}
+};
 
+function disableConfirmBtn() {
+  if (productDetails.length === 0) {
+    confirm.classList.add("disabled");
+  } else {
+    confirm.classList.remove("disabled");
+  }
+}
 console.log(productDetails);
 displayCarts();
